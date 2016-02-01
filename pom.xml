@@ -47,7 +47,7 @@
                     <serverId>docker-hub</serverId>
                     <imageName>peepod76/gks</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
-                    <pushImage>${env.push.image}</pushImage>
+                    <pushImage>${push.image}</pushImage>
                     <useGitCommitId>true</useGitCommitId>
                     <resources>
                         <resource>
