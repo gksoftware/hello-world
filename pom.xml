@@ -49,6 +49,10 @@
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <pushImage>${push.image}</pushImage>
                     <useGitCommitId>true</useGitCommitId>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
@@ -60,5 +64,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
