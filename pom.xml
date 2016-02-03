@@ -59,7 +59,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <serverId>docker-hub</serverId>
+                    <serverId>docker-hub-idox</serverId>
                     <imageName>idoxdev/hello-world</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <pushImage>${push.image}</pushImage>
