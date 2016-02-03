@@ -99,26 +99,25 @@
                                 <goals>
                                     <goal>build</goal>
                                 </goals>
+                                <configuration>
+                                    <serverId>docker-hub-idox</serverId>
+                                    <imageName>idoxdev/hello-world</imageName>
+                                    <dockerDirectory>src/main/docker</dockerDirectory>
+                                    <pushImage>true</pushImage>
+                                    <imageTags>
+                                        <imageTag>latest</imageTag>
+                                        <imageTag>${project.version}</imageTag>
+                                    </imageTags>
+                                    <resources>
+                                        <resource>
+                                            <targetPath>/</targetPath>
+                                            <directory>${project.build.directory}</directory>
+                                            <include>${project.build.finalName}.jar</include>
+                                        </resource>
+                                    </resources>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <serverId>docker-hub-idox</serverId>
-                            <imageName>idoxdev/hello-world</imageName>
-                            <dockerDirectory>src/main/docker</dockerDirectory>
-                            <pushImage>true</pushImage>
-                            <pushImageTag>true</pushImageTag>
-                            <imageTags>
-                                <imageTag>latest</imageTag>
-                                <imageTag>${project.version}</imageTag>
-                            </imageTags>
-                            <resources>
-                                <resource>
-                                    <targetPath>/</targetPath>
-                                    <directory>${project.build.directory}</directory>
-                                    <include>${project.build.finalName}.jar</include>
-                                </resource>
-                            </resources>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
