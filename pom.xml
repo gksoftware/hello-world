@@ -44,7 +44,7 @@
                         </goals>
                         <configuration>
                             <serverId>docker-hub</serverId>
-                            <imageName>peepod76/gks</imageName>
+                            <imageName>idoxdev/hello-world</imageName>
                             <imageTags>
                                 <imageTag>latest</imageTag>
                             </imageTags>
@@ -60,7 +60,7 @@
                 </executions>
                 <configuration>
                     <serverId>docker-hub</serverId>
-                    <imageName>peepod76/gks</imageName>
+                    <imageName>idoxdev/hello-world</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <pushImage>${push.image}</pushImage>
                     <useGitCommitId>true</useGitCommitId>
