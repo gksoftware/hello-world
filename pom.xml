@@ -105,7 +105,6 @@
                                     <dockerDirectory>src/main/docker</dockerDirectory>
                                     <pushImage>true</pushImage>
                                     <imageTags>
-                                        <imageTag>latest</imageTag>
                                         <imageTag>${project.version}</imageTag>
                                     </imageTags>
                                     <resources>
