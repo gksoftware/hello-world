@@ -79,17 +79,6 @@
                         <version>0.4.0</version>
                         <executions>
                             <execution>
-                                <id>remove-latest-tag</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>removeImage</goal>
-                                </goals>
-                                <configuration>
-                                    <serverId>docker-hub-idox</serverId>
-                                    <imageName>idoxdev/hello-world:latest</imageName>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <id>build-image</id>
                                 <phase>package</phase>
                                 <goals>
@@ -107,19 +96,6 @@
                                             <include>${project.build.finalName}.jar</include>
                                         </resource>
                                     </resources>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>tag-image</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>tag</goal>
-                                </goals>
-                                <configuration>
-                                    <serverId>docker-hub-idox</serverId>
-                                    <image>idoxdev/hello-world:${project.version}</image>
-                                    <newName>idoxdev/hello-world:latest</newName>
-                                    <pushImage>true</pushImage>
                                 </configuration>
                             </execution>
                         </executions>
