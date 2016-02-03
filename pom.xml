@@ -37,6 +37,21 @@
                 <version>0.4.0</version>
                 <executions>
                     <execution>
+                        <id>remove-latest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>removeImage</goal>
+                        </goals>
+                        <configuration>
+                            <serverId>docker-hub</serverId>
+                            <imageName>peepod76/gks</imageName>
+                            <imageTags>
+                                <imageTag>latest</imageTag>
+                            </imageTags>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-image</id>
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
@@ -50,8 +65,8 @@
                     <pushImage>${push.image}</pushImage>
                     <useGitCommitId>true</useGitCommitId>
                     <imageTags>
-                        <imageTag>${project.version}</imageTag>
                         <imageTag>latest</imageTag>
+                        <imageTag>${project.version}</imageTag>
                     </imageTags>
                     <resources>
                         <resource>
