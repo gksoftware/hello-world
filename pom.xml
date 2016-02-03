@@ -5,7 +5,7 @@
 
     <groupId>com.gksoftware</groupId>
     <artifactId>hello-world</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -79,21 +79,6 @@
                         <version>0.4.0</version>
                         <executions>
                             <execution>
-                                <id>remove-latest</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>removeImage</goal>
-                                </goals>
-                                <configuration>
-                                    <serverId>docker-hub-idox</serverId>
-                                    <imageName>idoxdev/hello-world</imageName>
-                                    <imageTags>
-                                        <imageTag>latest</imageTag>
-                                        <imageTag>${project.version}</imageTag>
-                                    </imageTags>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <id>build-image</id>
                                 <phase>package</phase>
                                 <goals>
@@ -101,7 +86,7 @@
                                 </goals>
                                 <configuration>
                                     <serverId>docker-hub-idox</serverId>
-                                    <imageName>idoxdev/hello-world</imageName>
+                                    <imageName>idoxdev/hello-world:${project.version}</imageName>
                                     <dockerDirectory>src/main/docker</dockerDirectory>
                                     <pushImage>true</pushImage>
                                     <imageTags>
