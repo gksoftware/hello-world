@@ -13,6 +13,10 @@
         <version>1.3.2.RELEASE</version>
     </parent>
 
+    <scm>
+        <connection>scm:git:ssh://gksoftware@github.com/hello-world.git</connection>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -32,6 +36,16 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/docker</directory>
+                <targetPath>${project.build.directory}</targetPath>
+                <includes>
+                    <include>Dockerfile</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
     <profiles>
         <profile>
@@ -54,7 +68,7 @@
                         <configuration>
                             <serverId>docker-hub-idox</serverId>
                             <imageName>idoxdev/hello-world</imageName>
-                            <dockerDirectory>src/main/docker</dockerDirectory>
+                            <dockerDirectory>${build.directory}</dockerDirectory>
                             <pushImage>false</pushImage>
                             <useGitCommitId>true</useGitCommitId>
                             <resources>
@@ -74,6 +88,29 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>2.2</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>1.9.4</version>
+                        <configuration>
+                            <tag>${project.version}</tag>
+                            <providerImplementations>
+                                <git>jgit</git>
+                            </providerImplementations>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.maven.scm</groupId>
+                                <artifactId>maven-scm-provider-jgit</artifactId>
+                                <version>1.9.4</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <plugin>
                         <groupId>com.spotify</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
                         <version>0.4.0</version>
@@ -87,7 +124,7 @@
                                 <configuration>
                                     <serverId>docker-hub-idox</serverId>
                                     <imageName>idoxdev/hello-world:${project.version}</imageName>
-                                    <dockerDirectory>src/main/docker</dockerDirectory>
+                                    <dockerDirectory>${build.directory}</dockerDirectory>
                                     <pushImage>true</pushImage>
                                     <resources>
                                         <resource>
