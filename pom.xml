@@ -14,7 +14,9 @@
     </parent>
 
     <scm>
-        <connection>scm:git:ssh://gksoftware@github.com/hello-world.git</connection>
+        <connection>scm:git:git@github.com:gksoftware/hello-world.git</connection>
+        <url>scm:git:git@github.com:gksoftware/hello-world.git</url>
+        <developerConnection>scm:git:git@github.com:gksoftware/hello-world.git</developerConnection>
     </scm>
 
     <dependencies>
