@@ -10,7 +10,7 @@ public class HelloWorldController {
 
     @RequestMapping("/")
     String home() {
-        return "Hello World!";
+        return "Hello Iain!";
     }
 
     public static void main(String[] args) throws Exception {
